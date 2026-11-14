@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mine Market</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#090e18;color:white;font-family:Arial}
+header{padding:22px;background:#111d2c;display:flex;justify-content:space-between}
+.logo{color:#55e6a5;font-size:23px;font-weight:bold}
+button{background:#35d99a;color:#07150f;border:0;padding:12px;border-radius:8px;font-weight:bold}
+.hero{text-align:center;padding:65px 15px;background:linear-gradient(135deg,#173c3d,#101827)}
+.hero h1{font-size:38px}
+.hero span{color:#55e6a5}
+.container{max-width:1000px;margin:auto;padding:25px}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
+.product{background:#142235;padding:20px;border-radius:15px;text-align:center;border:1px solid #30445b}
+.pic{font-size:75px;padding:25px;background:#20344a;border-radius:12px}
+.price{color:#55e6a5;font-size:22px;margin:15px}
+.buy{width:100%;cursor:pointer}
+.cart{margin-top:35px;background:#142235;padding:20px;border-radius:15px}
+footer{text-align:center;padding:30px;color:#8293a8}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">⚔ MINE MARKET</div>
+<div>🛒 <span id="count">0</span></div>
+</header>
+<section class="hero">
+<h1>GÜCÜNÜ <span>KEŞFET!</span></h1>
+<p>Minecraft'ın en özel eşyaları burada!</p>
+</section>
+<div class="container">
+<h2>🔥 Özel Ürünler</h2>
+<div class="products" id="products"></div>
+<div class="cart">
+<h2>🛒 Sepetim</h2>
+<div id="items">Sepet boş.</div>
+<h3>Toplam: <span id="total">0</span> TL</h3>
+<button onclick="alert('Bu sadece deneme sitesidir. Gerçek ödeme alınmıyor.')">Satın Al</button>
+</div>
+</div>
+<footer>MINE MARKET © 2026</footer>
+<script>
+let data=[
+["Ultra Elmas Kılıç",150,"⚔️"],
+["Efsanevi Zırh",200,"🛡️"],
+["Süper Kazma",100,"⛏️"],
+["Ejderha Gücü",250,"🐉"],
+["VIP Paketi",300,"💎"],
+["Ateş Kılıcı",175,"🔥"]
+];
+let cart=[];
+data.forEach((p,i)=>{
+products.innerHTML+=`<div class="product">
+<div class="pic">${p[2]}</div>
+<h3>${p[0]}</h3>
+<div class="price">${p[1]} TL</div>
+<button class="buy" onclick="add(${i})">Sepete Ekle</button>
+</div>`;
+});
+function add(i){cart.push(data[i]);render();}
+function render(){
+count.textContent=cart.length;
+items.innerHTML=cart.map((p,i)=>`<p>${p[2]} ${p[0]} - ${p[1]} TL <button onclick="del(${i})">Sil</button></p>`).join("")||"Sepet boş.";
+total.textContent=cart.reduce((s,p)=>s+p[1],0);
+}
+function del(i){cart.splice(i,1);render();}
+</script>
+</body>
+</html>
