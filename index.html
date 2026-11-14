@@ -3,257 +3,144 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mine Market | Premium Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mine Market</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Inter:wght@400;500;700;800&display=swap');
-
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
- margin:0;background:#090711;color:white;
- font-family:Inter,Arial,sans-serif;
-}
-button,input{font:inherit}
-button{cursor:pointer}
-header{
- position:sticky;top:0;z-index:10;
- background:#100c1bed;backdrop-filter:blur(15px);
- border-bottom:1px solid #39204c;
- padding:17px 5%;
- display:flex;align-items:center;
- justify-content:space-between;
-}
-.logo{font:800 21px Orbitron;color:white}
-.logo span{color:#c76aff}
-.cart-btn,.buy,.main-btn{
- border:1px solid #b44cff;
- background:linear-gradient(120deg,#7225a8,#b44cff);
- color:white;padding:11px 16px;border-radius:9px;
- box-shadow:0 0 15px #a43aff44;
-}
-.hero{
- padding:65px 7%;min-height:350px;
- background:radial-gradient(ellipse at 80% 50%,#7428a844,transparent 40%),
- linear-gradient(120deg,#170d25,#0d0a17);
- border-bottom:1px solid #39204c;
- display:flex;align-items:center;
- justify-content:space-between;gap:20px;
-}
-.hero h1{
- font:800 clamp(30px,6vw,55px) Orbitron;
- line-height:1.2;margin:20px 0;
-}
-.hero h1 span{color:#d17bff;text-shadow:0 0 20px #b44cff}
-.hero p{color:#b9abc9;line-height:1.8}
-.hero-icon{
- font-size:100px;filter:drop-shadow(0 0 25px #b44cff);
- animation:float 3s infinite ease-in-out;
-}
-@keyframes float{50%{transform:translateY(-15px) rotate(8deg)}}
-.container{max-width:1150px;margin:auto;padding:35px 5%}
-.heading{
- font:700 21px Orbitron;margin-bottom:20px;
-}
-.heading span{color:#c76aff}
-.tools{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
-.search{
- flex:1;min-width:170px;background:#171223;
- color:white;border:1px solid #49315d;
- border-radius:9px;padding:13px;outline:none;
-}
-.categories{display:flex;gap:9px;overflow-x:auto;padding:5px 0 22px}
-.cat{
- white-space:nowrap;background:#171223;color:#c9b8d7;
- border:1px solid #443052;border-radius:25px;padding:10px 17px;
-}
-.cat.active,.cat:hover{
- background:#7929a7;border-color:#d17bff;color:white;
-}
-.products{
- display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
- gap:18px;
-}
-.product{
- background:linear-gradient(145deg,#1c1429,#110e1b);
- border:1px solid #382448;border-radius:14px;
- padding:14px;transition:.25s;overflow:hidden;
-}
-.product:hover{
- transform:translateY(-5px);
- border-color:#c76aff;
- box-shadow:0 8px 25px #9d3df333;
-}
-.art{
- height:155px;border-radius:10px;
- background:radial-gradient(circle,#48235f,#20142e 70%);
- display:grid;place-items:center;position:relative;
-}
-.art img{
- width:100px;height:100px;object-fit:contain;
- image-rendering:pixelated;
- filter:drop-shadow(0 0 12px #c76aff);
- transition:.3s;
-}
-.product:hover .art img{transform:scale(1.12)}
-.product h3{font-size:15px;margin:16px 0 7px}
-.desc{font-size:12px;color:#a99bb8;min-height:30px}
-.price{font-size:21px;color:#d17bff;font-weight:800;margin:15px 0}
-.buy{width:100%;font-weight:700}
-.buy:active{transform:scale(.96)}
-.cart{
- margin-top:35px;background:#171223;
- border:1px solid #49315d;border-radius:14px;padding:20px;
-}
-.cart-item{
- display:flex;justify-content:space-between;gap:10px;
- align-items:center;padding:12px 0;
- border-bottom:1px solid #392b47;font-size:13px;
-}
-.remove{background:#67243e;color:white;border:0;padding:7px;border-radius:6px}
-.total{font-size:21px;color:#d17bff}
-footer{
- text-align:center;padding:30px;color:#887b99;
- border-top:1px solid #30203f;margin-top:40px;
-}
-.empty{color:#a99bb8;padding:12px 0}
-@media(max-width:700px){
- .products{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
- .hero{padding:48px 6%;min-height:300px}
- .hero-icon{font-size:65px}
- .product{padding:10px}
- .art{height:120px}
- .art img{width:80px;height:80px}
- .product h3{font-size:13px}
- .desc{font-size:11px}
- header{padding:15px 4%}
- .logo{font-size:17px}
-}
-@media(max-width:360px){
- .products{grid-template-columns:1fr}
-}
+body{margin:0;background:#090711;color:#fff;font-family:Arial,sans-serif}
+header{padding:22px 6%;background:#100b1d;border-bottom:1px solid #762cff;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+.logo{font-size:25px;font-weight:900;color:#bd80ff;text-shadow:0 0 15px #922cff}
+.cart{background:#792cff;border:0;padding:12px 18px;color:white;border-radius:10px;font-weight:bold;cursor:pointer}
+.hero{text-align:center;padding:55px 15px 35px;background:radial-gradient(ellipse at top,#32105b,#090711 70%)}
+.hero h1{font-size:38px;margin:0 0 12px}
+.hero h1 span{color:#bd80ff}
+.hero p{color:#c5b8d8}
+.search{display:block;width:min(420px,90%);margin:22px auto;padding:14px;border:1px solid #813cff;background:#130e20;color:white;border-radius:10px;outline:none}
+.categories{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:10px 15px 25px}
+.categories button{background:#171024;border:1px solid #59318a;color:#ddd;padding:11px 18px;border-radius:9px;cursor:pointer}
+.categories button.active,.categories button:hover{background:#782cff;color:white}
+main{max-width:1100px;margin:auto;padding:15px 20px 60px}
+.section-title{font-size:23px;margin:15px 0 22px}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
+.product{background:linear-gradient(145deg,#191127,#100c19);border:1px solid #382052;border-radius:15px;padding:18px;text-align:center;transition:.2s}
+.product:hover{transform:translateY(-5px);border-color:#a45aff;box-shadow:0 0 20px #7022aa55}
+.product img{width:100px;height:100px;object-fit:contain;image-rendering:pixelated;margin:8px auto 15px;filter:drop-shadow(0 0 10px #8e42ff55)}
+.product h3{margin:5px 0 8px}
+.product p{color:#b9a9ca;font-size:13px;min-height:32px}
+.price{font-size:19px;font-weight:bold;color:#c18aff;margin:14px}
+.add{width:100%;padding:12px;border:0;border-radius:9px;background:#792cff;color:white;font-weight:bold;cursor:pointer}
+.add:hover{background:#9b55ff}
+.tag{font-size:11px;color:#d5aaff;border:1px solid #7c39bd;border-radius:20px;padding:5px 9px;display:inline-block}
+footer{text-align:center;padding:25px;color:#877a99;border-top:1px solid #2b1b3d;font-size:13px}
+.cart-panel{display:none;position:fixed;right:15px;top:75px;width:min(340px,90%);background:#171024;border:1px solid #9b55ff;border-radius:14px;padding:18px;z-index:5;box-shadow:0 0 30px #000}
+.cart-panel.show{display:block}
+.cart-line{display:flex;justify-content:space-between;gap:10px;margin:12px 0;color:#ddd}
+.close{float:right;background:none;border:0;color:white;font-size:20px;cursor:pointer}
+@media(max-width:500px){.hero h1{font-size:29px}header{padding:18px 5%}}
 </style>
 </head>
 <body>
 
 <header>
- <div class="logo">MINE<span>MARKET</span></div>
- <button class="cart-btn" onclick="document.getElementById('cart').scrollIntoView()">
- 🛒 Sepet (<span id="count">0</span>)
- </button>
+  <div class="logo">⛏ MINE MARKET</div>
+  <button class="cart" onclick="toggleCart()">🛒 Sepetim (<span id="cartCount">0</span>)</button>
 </header>
 
 <section class="hero">
- <div>
-  <div style="color:#d17bff;letter-spacing:3px;font-size:11px">
-   PREMIUM MINECRAFT STORE
-  </div>
-  <h1>GÜCÜNÜ<br><span>KEŞFET!</span></h1>
-  <p>En özel silahlar, zırhlar ve güçler<br>
-  Minecraft dünyasında seni bekliyor.</p>
-  <button class="main-btn" onclick="document.getElementById('shop').scrollIntoView()">
-   ÜRÜNLERİ KEŞFET →
-  </button>
- </div>
- <div class="hero-icon">⚔️</div>
+  <h1>MINE <span>MARKET</span></h1>
+  <p>Minecraft dünyasının özel ürünleri seni bekliyor!</p>
+  <input class="search" id="search" placeholder="Ürün ara..." oninput="renderProducts()">
 </section>
 
-<main class="container" id="shop">
- <div class="heading">✦ ÖZEL <span>ÜRÜNLER</span></div>
+<nav class="categories">
+  <button class="active" onclick="setCategory('all',this)">Tümü</button>
+  <button onclick="setCategory('equipment',this)">Ekipmanlar</button>
+  <button onclick="setCategory('rare',this)">Özel Eşyalar</button>
+  <button onclick="setCategory('vip',this)">VIP Üyelik</button>
+</nav>
 
- <div class="tools">
-  <input class="search" id="search" placeholder="🔎 Ürün ara..." oninput="renderProducts()">
- </div>
-
- <div class="categories">
-  <button class="cat active" onclick="category('Tümü',this)">Tümü</button>
-  <button class="cat" onclick="category('Silah',this)">⚔️ Silahlar</button>
-  <button class="cat" onclick="category('Zırh',this)">🛡️ Zırhlar</button>
-  <button class="cat" onclick="category('Kazma',this)">⛏️ Kazmalar</button>
-  <button class="cat" onclick="category('VIP',this)">💎 VIP</button>
- </div>
-
- <div class="products" id="products"></div>
-
- <section class="cart" id="cart">
-  <div class="heading">🛒 ALIŞVERİŞ <span>SEPETİ</span></div>
-  <div id="items" class="empty">Sepetiniz boş.</div>
-  <p>Toplam: <strong class="total" id="total">0 TL</strong></p>
-  <button class="main-btn" onclick="checkout()">SATIN AL →</button>
-  <p style="font-size:11px;color:#9d91a9">
-   Demo mağaza: Gerçek ödeme alınmamaktadır.
-  </p>
- </section>
+<main>
+  <h2 class="section-title" id="sectionTitle">Mağaza Ürünleri</h2>
+  <div class="products" id="products"></div>
 </main>
 
-<footer>
- MINE MARKET © 2026<br>
- <span style="color:#c76aff">Minecraft Premium Store</span>
-</footer>
+<div class="cart-panel" id="cartPanel">
+  <button class="close" onclick="toggleCart()">✕</button>
+  <h3>🛒 Sepetim</h3>
+  <div id="cartItems">Sepetin boş.</div>
+  <hr>
+  <p>Toplam: <b id="total">0 TL</b></p>
+  <button class="add" onclick="checkout()">Satın Al</button>
+  <p style="font-size:11px;color:#a99bb9">Bu mağaza şu anda demo aşamasındadır.</p>
+</div>
+
+<footer>© 2026 Mine Market · Minecraft ürün mağazası</footer>
 
 <script>
-const data=[
- {id:1,name:"Ultra Elmas Kılıç",cat:"Silah",price:150,icon:"diamond_sword",desc:"Güçlendirilmiş özel elmas kılıç."},
- {id:2,name:"Ateş Kılıcı",cat:"Silah",price:175,icon:"iron_sword",desc:"Ateş gücüne sahip özel kılıç."},
- {id:3,name:"Efsanevi Zırh",cat:"Zırh",price:200,icon:"diamond_chestplate",desc:"Güçlü ve dayanıklı zırh."},
- {id:4,name:"Elmas Miğfer",cat:"Zırh",price:120,icon:"diamond_helmet",desc:"Özel koruma miğferi."},
- {id:5,name:"Süper Kazma",cat:"Kazma",price:100,icon:"diamond_pickaxe",desc:"Hızlı kazı için özel kazma."},
- {id:6,name:"VIP Paketi",cat:"VIP",price:300,icon:"nether_star",desc:"Özel VIP üyelik paketi."}
+const products = [
+ {id:1,name:"Netherit Kılıç",desc:"Güçlü ve dayanıklı savaş ekipmanı.",price:49,category:"equipment",image:"https://mcasset.cloud/1.21.4/assets/minecraft/textures/item/netherite_sword.png"},
+ {id:2,name:"Büyülü Altın Elma",desc:"Maceralarda kullanabileceğin özel eşya.",price:25,category:"rare",image:"https://mcasset.cloud/1.21.4/assets/minecraft/textures/item/enchanted_golden_apple.png"},
+ {id:3,name:"Elytra",desc:"Minecraft dünyasında gökyüzüne yüksel!",price:65,category:"equipment",image:"https://mcasset.cloud/1.21.4/assets/minecraft/textures/item/elytra.png"},
+ {id:4,name:"Ölümsüzlük Totemi",desc:"Zorlu maceralar için özel eşya.",price:39,category:"rare",image:"https://mcasset.cloud/1.21.4/assets/minecraft/textures/item/totem_of_undying.png"},
+ {id:5,name:"Üç Dişli Mızrak",desc:"Denizlerin güçlü silahı.",price:45,category:"equipment",image:"https://mcasset.cloud/1.21.4/assets/minecraft/textures/item/trident.png"},
+ {id:6,name:"VIP 7 Günlük",desc:"7 günlük VIP üyelik paketi.",price:59,category:"vip",image:"https://mcasset.cloud/1.21.4/assets/minecraft/textures/item/nether_star.png"},
+ {id:7,name:"VIP 30 Günlük",desc:"30 günlük VIP üyelik paketi.",price:149,category:"vip",image:"https://mcasset.cloud/1.21.4/assets/minecraft/textures/item/experience_bottle.png"}
 ];
 
+let category="all";
 let cart=[];
-let active="Tümü";
 
 function renderProducts(){
- const q=document.getElementById("search").value.toLowerCase();
- const list=data.filter(p=>
-  (active==="Tümü"||p.cat===active)&&p.name.toLowerCase().includes(q)
+ const search=document.getElementById("search").value.toLowerCase();
+ const filtered=products.filter(p=>
+  (category==="all"||p.category===category)&&p.name.toLowerCase().includes(search)
  );
- document.getElementById("products").innerHTML=list.map(p=>`
- <article class="product">
-  <div class="art">
-   <img src="https://mcasset.cloud/1.21.4/assets/minecraft/textures/item/${p.icon}.png"
-    alt="${p.name}" onerror="this.style.display='none';this.parentElement.innerHTML+='💎'">
-  </div>
-  <h3>${p.name}</h3>
-  <div class="desc">${p.desc}</div>
-  <div class="price">${p.price} TL</div>
-  <button class="buy" onclick="add(${p.id})">+ SEPETE EKLE</button>
- </article>`).join("")||"<p>Ürün bulunamadı.</p>";
+ document.getElementById("products").innerHTML=filtered.map(p=>`
+  <article class="product">
+   <span class="tag">${p.category==="vip"?"VIP ÜYELİK":p.category==="rare"?"ÖZEL EŞYA":"EKİPMAN"}</span>
+   <img src="${p.image}" alt="${p.name}">
+   <h3>${p.name}</h3>
+   <p>${p.desc}</p>
+   <div class="price">${p.price} TL</div>
+   <button class="add" onclick="addToCart(${p.id})">Sepete Ekle</button>
+  </article>
+ `).join("")||"<p>Aradığın ürün bulunamadı.</p>";
 }
 
-function category(c,btn){
- active=c;
- document.querySelectorAll(".cat").forEach(x=>x.classList.remove("active"));
- btn.classList.add("active");
+function setCategory(value,button){
+ category=value;
+ document.querySelectorAll(".categories button").forEach(b=>b.classList.remove("active"));
+ button.classList.add("active");
+ document.getElementById("sectionTitle").textContent=
+  value==="vip"?"VIP Üyelikler":value==="rare"?"Özel Eşyalar":value==="equipment"?"Ekipmanlar":"Mağaza Ürünleri";
  renderProducts();
 }
 
-function add(id){
- cart.push(data.find(p=>p.id===id));
- renderCart();
+function addToCart(id){
+ const product=products.find(p=>p.id===id);
+ cart.push(product);
+ updateCart();
 }
 
-function removeItem(i){
- cart.splice(i,1);
- renderCart();
+function updateCart(){
+ document.getElementById("cartCount").textContent=cart.length;
+ document.getElementById("cartItems").innerHTML=cart.length?
+ cart.map((p,i)=>`<div class="cart-line"><span>${p.name}</span><span>${p.price} TL <button onclick="removeItem(${i})">✕</button></span></div>`).join("")
+ :"Sepetin boş.";
+ document.getElementById("total").textContent=cart.reduce((s,p)=>s+p.price,0)+" TL";
 }
 
-function renderCart(){
- document.getElementById("count").textContent=cart.length;
- document.getElementById("items").innerHTML=cart.map((p,i)=>`
- <div class="cart-item">
- <span>${p.name}</span>
- <span>${p.price} TL <button class="remove" onclick="removeItem(${i})">Sil</button></span>
- </div>`).join("")||"Sepetiniz boş.";
- document.getElementById("total").textContent=
- cart.reduce((s,p)=>s+p.price,0)+" TL";
+function removeItem(index){
+ cart.splice(index,1);
+ updateCart();
+}
+
+function toggleCart(){
+ document.getElementById("cartPanel").classList.toggle("show");
 }
 
 function checkout(){
- if(!cart.length){alert("Sepetiniz boş!");return;}
- alert("Bu bir deneme mağazasıdır. Gerçek ödeme alınmamaktadır. Toplam: "+
- cart.reduce((s,p)=>s+p.price,0)+" TL");
+ alert("Bu mağaza henüz demo aşamasında. Gerçek ödeme sistemi henüz bağlı değil.");
 }
 
 renderProducts();
