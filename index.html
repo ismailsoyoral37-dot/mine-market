@@ -4,71 +4,259 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mine Market</title>
+<title>Mine Market | Premium Store</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Inter:wght@400;500;700;800&display=swap');
+
 *{box-sizing:border-box}
-body{margin:0;background:#090e18;color:white;font-family:Arial}
-header{padding:22px;background:#111d2c;display:flex;justify-content:space-between}
-.logo{color:#55e6a5;font-size:23px;font-weight:bold}
-button{background:#35d99a;color:#07150f;border:0;padding:12px;border-radius:8px;font-weight:bold}
-.hero{text-align:center;padding:65px 15px;background:linear-gradient(135deg,#173c3d,#101827)}
-.hero h1{font-size:38px}
-.hero span{color:#55e6a5}
-.container{max-width:1000px;margin:auto;padding:25px}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
-.product{background:#142235;padding:20px;border-radius:15px;text-align:center;border:1px solid #30445b}
-.pic{font-size:75px;padding:25px;background:#20344a;border-radius:12px}
-.price{color:#55e6a5;font-size:22px;margin:15px}
-.buy{width:100%;cursor:pointer}
-.cart{margin-top:35px;background:#142235;padding:20px;border-radius:15px}
-footer{text-align:center;padding:30px;color:#8293a8}
+html{scroll-behavior:smooth}
+body{
+ margin:0;background:#090711;color:white;
+ font-family:Inter,Arial,sans-serif;
+}
+button,input{font:inherit}
+button{cursor:pointer}
+header{
+ position:sticky;top:0;z-index:10;
+ background:#100c1bed;backdrop-filter:blur(15px);
+ border-bottom:1px solid #39204c;
+ padding:17px 5%;
+ display:flex;align-items:center;
+ justify-content:space-between;
+}
+.logo{font:800 21px Orbitron;color:white}
+.logo span{color:#c76aff}
+.cart-btn,.buy,.main-btn{
+ border:1px solid #b44cff;
+ background:linear-gradient(120deg,#7225a8,#b44cff);
+ color:white;padding:11px 16px;border-radius:9px;
+ box-shadow:0 0 15px #a43aff44;
+}
+.hero{
+ padding:65px 7%;min-height:350px;
+ background:radial-gradient(ellipse at 80% 50%,#7428a844,transparent 40%),
+ linear-gradient(120deg,#170d25,#0d0a17);
+ border-bottom:1px solid #39204c;
+ display:flex;align-items:center;
+ justify-content:space-between;gap:20px;
+}
+.hero h1{
+ font:800 clamp(30px,6vw,55px) Orbitron;
+ line-height:1.2;margin:20px 0;
+}
+.hero h1 span{color:#d17bff;text-shadow:0 0 20px #b44cff}
+.hero p{color:#b9abc9;line-height:1.8}
+.hero-icon{
+ font-size:100px;filter:drop-shadow(0 0 25px #b44cff);
+ animation:float 3s infinite ease-in-out;
+}
+@keyframes float{50%{transform:translateY(-15px) rotate(8deg)}}
+.container{max-width:1150px;margin:auto;padding:35px 5%}
+.heading{
+ font:700 21px Orbitron;margin-bottom:20px;
+}
+.heading span{color:#c76aff}
+.tools{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.search{
+ flex:1;min-width:170px;background:#171223;
+ color:white;border:1px solid #49315d;
+ border-radius:9px;padding:13px;outline:none;
+}
+.categories{display:flex;gap:9px;overflow-x:auto;padding:5px 0 22px}
+.cat{
+ white-space:nowrap;background:#171223;color:#c9b8d7;
+ border:1px solid #443052;border-radius:25px;padding:10px 17px;
+}
+.cat.active,.cat:hover{
+ background:#7929a7;border-color:#d17bff;color:white;
+}
+.products{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:18px;
+}
+.product{
+ background:linear-gradient(145deg,#1c1429,#110e1b);
+ border:1px solid #382448;border-radius:14px;
+ padding:14px;transition:.25s;overflow:hidden;
+}
+.product:hover{
+ transform:translateY(-5px);
+ border-color:#c76aff;
+ box-shadow:0 8px 25px #9d3df333;
+}
+.art{
+ height:155px;border-radius:10px;
+ background:radial-gradient(circle,#48235f,#20142e 70%);
+ display:grid;place-items:center;position:relative;
+}
+.art img{
+ width:100px;height:100px;object-fit:contain;
+ image-rendering:pixelated;
+ filter:drop-shadow(0 0 12px #c76aff);
+ transition:.3s;
+}
+.product:hover .art img{transform:scale(1.12)}
+.product h3{font-size:15px;margin:16px 0 7px}
+.desc{font-size:12px;color:#a99bb8;min-height:30px}
+.price{font-size:21px;color:#d17bff;font-weight:800;margin:15px 0}
+.buy{width:100%;font-weight:700}
+.buy:active{transform:scale(.96)}
+.cart{
+ margin-top:35px;background:#171223;
+ border:1px solid #49315d;border-radius:14px;padding:20px;
+}
+.cart-item{
+ display:flex;justify-content:space-between;gap:10px;
+ align-items:center;padding:12px 0;
+ border-bottom:1px solid #392b47;font-size:13px;
+}
+.remove{background:#67243e;color:white;border:0;padding:7px;border-radius:6px}
+.total{font-size:21px;color:#d17bff}
+footer{
+ text-align:center;padding:30px;color:#887b99;
+ border-top:1px solid #30203f;margin-top:40px;
+}
+.empty{color:#a99bb8;padding:12px 0}
+@media(max-width:700px){
+ .products{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+ .hero{padding:48px 6%;min-height:300px}
+ .hero-icon{font-size:65px}
+ .product{padding:10px}
+ .art{height:120px}
+ .art img{width:80px;height:80px}
+ .product h3{font-size:13px}
+ .desc{font-size:11px}
+ header{padding:15px 4%}
+ .logo{font-size:17px}
+}
+@media(max-width:360px){
+ .products{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
+
 <header>
-<div class="logo">⚔ MINE MARKET</div>
-<div>🛒 <span id="count">0</span></div>
+ <div class="logo">MINE<span>MARKET</span></div>
+ <button class="cart-btn" onclick="document.getElementById('cart').scrollIntoView()">
+ 🛒 Sepet (<span id="count">0</span>)
+ </button>
 </header>
+
 <section class="hero">
-<h1>GÜCÜNÜ <span>KEŞFET!</span></h1>
-<p>Minecraft'ın en özel eşyaları burada!</p>
+ <div>
+  <div style="color:#d17bff;letter-spacing:3px;font-size:11px">
+   PREMIUM MINECRAFT STORE
+  </div>
+  <h1>GÜCÜNÜ<br><span>KEŞFET!</span></h1>
+  <p>En özel silahlar, zırhlar ve güçler<br>
+  Minecraft dünyasında seni bekliyor.</p>
+  <button class="main-btn" onclick="document.getElementById('shop').scrollIntoView()">
+   ÜRÜNLERİ KEŞFET →
+  </button>
+ </div>
+ <div class="hero-icon">⚔️</div>
 </section>
-<div class="container">
-<h2>🔥 Özel Ürünler</h2>
-<div class="products" id="products"></div>
-<div class="cart">
-<h2>🛒 Sepetim</h2>
-<div id="items">Sepet boş.</div>
-<h3>Toplam: <span id="total">0</span> TL</h3>
-<button onclick="alert('Bu sadece deneme sitesidir. Gerçek ödeme alınmıyor.')">Satın Al</button>
-</div>
-</div>
-<footer>MINE MARKET © 2026</footer>
+
+<main class="container" id="shop">
+ <div class="heading">✦ ÖZEL <span>ÜRÜNLER</span></div>
+
+ <div class="tools">
+  <input class="search" id="search" placeholder="🔎 Ürün ara..." oninput="renderProducts()">
+ </div>
+
+ <div class="categories">
+  <button class="cat active" onclick="category('Tümü',this)">Tümü</button>
+  <button class="cat" onclick="category('Silah',this)">⚔️ Silahlar</button>
+  <button class="cat" onclick="category('Zırh',this)">🛡️ Zırhlar</button>
+  <button class="cat" onclick="category('Kazma',this)">⛏️ Kazmalar</button>
+  <button class="cat" onclick="category('VIP',this)">💎 VIP</button>
+ </div>
+
+ <div class="products" id="products"></div>
+
+ <section class="cart" id="cart">
+  <div class="heading">🛒 ALIŞVERİŞ <span>SEPETİ</span></div>
+  <div id="items" class="empty">Sepetiniz boş.</div>
+  <p>Toplam: <strong class="total" id="total">0 TL</strong></p>
+  <button class="main-btn" onclick="checkout()">SATIN AL →</button>
+  <p style="font-size:11px;color:#9d91a9">
+   Demo mağaza: Gerçek ödeme alınmamaktadır.
+  </p>
+ </section>
+</main>
+
+<footer>
+ MINE MARKET © 2026<br>
+ <span style="color:#c76aff">Minecraft Premium Store</span>
+</footer>
+
 <script>
-let data=[
-["Ultra Elmas Kılıç",150,"⚔️"],
-["Efsanevi Zırh",200,"🛡️"],
-["Süper Kazma",100,"⛏️"],
-["Ejderha Gücü",250,"🐉"],
-["VIP Paketi",300,"💎"],
-["Ateş Kılıcı",175,"🔥"]
+const data=[
+ {id:1,name:"Ultra Elmas Kılıç",cat:"Silah",price:150,icon:"diamond_sword",desc:"Güçlendirilmiş özel elmas kılıç."},
+ {id:2,name:"Ateş Kılıcı",cat:"Silah",price:175,icon:"iron_sword",desc:"Ateş gücüne sahip özel kılıç."},
+ {id:3,name:"Efsanevi Zırh",cat:"Zırh",price:200,icon:"diamond_chestplate",desc:"Güçlü ve dayanıklı zırh."},
+ {id:4,name:"Elmas Miğfer",cat:"Zırh",price:120,icon:"diamond_helmet",desc:"Özel koruma miğferi."},
+ {id:5,name:"Süper Kazma",cat:"Kazma",price:100,icon:"diamond_pickaxe",desc:"Hızlı kazı için özel kazma."},
+ {id:6,name:"VIP Paketi",cat:"VIP",price:300,icon:"nether_star",desc:"Özel VIP üyelik paketi."}
 ];
+
 let cart=[];
-data.forEach((p,i)=>{
-products.innerHTML+=`<div class="product">
-<div class="pic">${p[2]}</div>
-<h3>${p[0]}</h3>
-<div class="price">${p[1]} TL</div>
-<button class="buy" onclick="add(${i})">Sepete Ekle</button>
-</div>`;
-});
-function add(i){cart.push(data[i]);render();}
-function render(){
-count.textContent=cart.length;
-items.innerHTML=cart.map((p,i)=>`<p>${p[2]} ${p[0]} - ${p[1]} TL <button onclick="del(${i})">Sil</button></p>`).join("")||"Sepet boş.";
-total.textContent=cart.reduce((s,p)=>s+p[1],0);
+let active="Tümü";
+
+function renderProducts(){
+ const q=document.getElementById("search").value.toLowerCase();
+ const list=data.filter(p=>
+  (active==="Tümü"||p.cat===active)&&p.name.toLowerCase().includes(q)
+ );
+ document.getElementById("products").innerHTML=list.map(p=>`
+ <article class="product">
+  <div class="art">
+   <img src="https://mcasset.cloud/1.21.4/assets/minecraft/textures/item/${p.icon}.png"
+    alt="${p.name}" onerror="this.style.display='none';this.parentElement.innerHTML+='💎'">
+  </div>
+  <h3>${p.name}</h3>
+  <div class="desc">${p.desc}</div>
+  <div class="price">${p.price} TL</div>
+  <button class="buy" onclick="add(${p.id})">+ SEPETE EKLE</button>
+ </article>`).join("")||"<p>Ürün bulunamadı.</p>";
 }
-function del(i){cart.splice(i,1);render();}
+
+function category(c,btn){
+ active=c;
+ document.querySelectorAll(".cat").forEach(x=>x.classList.remove("active"));
+ btn.classList.add("active");
+ renderProducts();
+}
+
+function add(id){
+ cart.push(data.find(p=>p.id===id));
+ renderCart();
+}
+
+function removeItem(i){
+ cart.splice(i,1);
+ renderCart();
+}
+
+function renderCart(){
+ document.getElementById("count").textContent=cart.length;
+ document.getElementById("items").innerHTML=cart.map((p,i)=>`
+ <div class="cart-item">
+ <span>${p.name}</span>
+ <span>${p.price} TL <button class="remove" onclick="removeItem(${i})">Sil</button></span>
+ </div>`).join("")||"Sepetiniz boş.";
+ document.getElementById("total").textContent=
+ cart.reduce((s,p)=>s+p.price,0)+" TL";
+}
+
+function checkout(){
+ if(!cart.length){alert("Sepetiniz boş!");return;}
+ alert("Bu bir deneme mağazasıdır. Gerçek ödeme alınmamaktadır. Toplam: "+
+ cart.reduce((s,p)=>s+p.price,0)+" TL");
+}
+
+renderProducts();
 </script>
 </body>
 </html>
